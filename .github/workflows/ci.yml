@@ -23,6 +23,12 @@ on:
     branches: [ "main" ]
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug
+        run: ls -a
+
   checkout:
     runs-on: ubuntu-latest
     steps:
