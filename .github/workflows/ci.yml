@@ -14,7 +14,7 @@
 name: CI
 
 env:
-  WORKSPACE_FOLDER: ${{ github.workspace }}
+  SCRIPTS_FOLDER: scripts
 
 on:
   push:
@@ -33,22 +33,28 @@ jobs:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
-      - name: Debug
-        run: ls -la
+      - name: Navigate to repository root
+        run: cd ${{ github.workspace }}
 
       - name: Check required files
-        run: ${{ env.WORKSPACE_FOLDER }}/scripts/check_files.sh
+        run: ${{ env.SCRIPTS_FOLDER }}/scripts/check_files.sh
 
   check-ci:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
+      - name: Navigate to repository root
+        run: cd ${{ github.workspace }}
+
       - name: CI check
-        run: ${{ env.WORKSPACE_FOLDER }}/scripts//check_ci.sh rebase
+        run: ${{ env.SCRIPTS_FOLDER }}/scripts//check_ci.sh rebase
 
   check-header:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
+      - name: Navigate to repository root
+        run: cd ${{ github.workspace }}
+        
       - name: Header comments check
-        run: ${{ env.WORKSPACE_FOLDER }}/scripts//check_header.sh
+        run: ${{ env.SCRIPTS_FOLDER }}/scripts//check_header.sh
