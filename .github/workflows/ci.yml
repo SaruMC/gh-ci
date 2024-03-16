@@ -12,6 +12,7 @@ on:
 jobs:
   debug:
     runs-on: ubuntu-latest
+    needs: [checkout]
     steps:
       - name: Print environment variables
         run: | 
