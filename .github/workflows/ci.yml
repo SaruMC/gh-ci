@@ -36,6 +36,9 @@ jobs:
       - name: Navigate to repository root
         run: cd ${{ github.workspace }}
 
+      - name: Debug
+        run: ls -la
+
       - name: Check required files
         run: ${{ env.SCRIPTS_FOLDER }}/check_files.sh
 
