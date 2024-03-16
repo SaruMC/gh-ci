@@ -10,6 +10,19 @@ on:
     branches: [ "main" ]
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print environment variables
+        run: | 
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+
+      - name: Print current branch
+        run: git rev-parse --abbrev-ref HEAD
+
+      - name: Print current branch
+        run: git rev-parse --abbrev-ref HEAD
+
   checkout:
     runs-on: ubuntu-latest
     steps:
