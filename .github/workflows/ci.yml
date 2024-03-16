@@ -34,8 +34,8 @@ jobs:
     needs: [checkout]
     steps:
       - name: Debug
-        run: ls -a
-        
+        run: ls -la
+
       - name: Check required files
         run: ${{ env.WORKSPACE_FOLDER }}/scripts/check_files.sh
 
