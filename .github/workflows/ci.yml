@@ -1,16 +1,3 @@
-###
-#
-#  @file ci.yml
-#  @copyright 2023-2024 SaruMC. All rights reserved.
-#
-#  @version 1.2.3
-#  @author SaruMC
-#  @date 2024-03-15
-#
-# This script executes all verifications for the runners
-#
-###
-
 name: CI
 
 env:
@@ -33,19 +20,28 @@ jobs:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
+      - name: Navigate to scripts folder
+        run: cd ${{ github.workspace }}/${{ env.SCRIPTS_FOLDER }}
+
       - name: Check required files
-        run: ./../check_files.sh
+        run: ./check_files.sh
 
   check-ci:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
+      - name: Navigate to scripts folder
+        run: cd ${{ github.workspace }}/${{ env.SCRIPTS_FOLDER }}
+
       - name: CI check
-        run: ./../check_ci.sh rebase
+        run: ./check_ci.sh rebase
 
   check-header:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
+      - name: Navigate to scripts folder
+        run: cd ${{ github.workspace }}/${{ env.SCRIPTS_FOLDER }}
+
       - name: Header comments check
-        run: ./../check_header.sh
+        run: ./check_header.sh
