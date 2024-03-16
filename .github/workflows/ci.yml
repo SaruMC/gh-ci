@@ -33,31 +33,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
-      - name: Navigate to repository root
-        run: cd ${{ github.workspace }}
-
-      - name: Debug
-        run: ls -la
-
       - name: Check required files
-        run: ${{ env.SCRIPTS_FOLDER }}/check_files.sh
+        run: ./../check_files.sh
 
   check-ci:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
-      - name: Navigate to repository root
-        run: cd ${{ github.workspace }}
-
       - name: CI check
-        run: ${{ env.SCRIPTS_FOLDER }}/check_ci.sh rebase
+        run: ./../check_ci.sh rebase
 
   check-header:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
-      - name: Navigate to repository root
-        run: cd ${{ github.workspace }}
-
       - name: Header comments check
-        run: ${{ env.SCRIPTS_FOLDER }}/check_header.sh
+        run: ./../check_header.sh
