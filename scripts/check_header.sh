@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-
 ###
 #
 #  @file check_header.sh
