@@ -40,8 +40,7 @@ jobs:
           cd ${{ env.SCRIPTS_FOLDER }}
           chmod +x check_files.sh
           ./check_files.sh
-        env:
-          SCRIPTS_FOLDER: ${{ env.SCRIPTS_FOLDER }}
+        working-directory: ${{ env.SCRIPTS_FOLDER }}
 
   check-ci:
     runs-on: ubuntu-latest
@@ -49,11 +48,9 @@ jobs:
     steps:
       - name: CI check
         run: |
-          cd ${{ env.SCRIPTS_FOLDER }}
           chmod +x check_ci.sh
           ./check_ci.sh rebase
-        env:
-          SCRIPTS_FOLDER: ${{ env.SCRIPTS_FOLDER }}
+        working-directory: ${{ env.SCRIPTS_FOLDER }}
 
   check-header:
     runs-on: ubuntu-latest
@@ -61,8 +58,6 @@ jobs:
     steps:
       - name: Header comments check
         run: |
-          cd ${{ env.SCRIPTS_FOLDER }}
           chmod +x check_header.sh
           ./check_header.sh
-        env:
-          SCRIPTS_FOLDER: ${{ env.SCRIPTS_FOLDER }}
+        working-directory: ${{ env.SCRIPTS_FOLDER }}
