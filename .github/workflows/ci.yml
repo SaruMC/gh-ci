@@ -1,7 +1,7 @@
 name: CI
 
 env:
-  SCRIPTS_FOLDER: scripts
+  SCRIPTS_FOLDER: scripts/
   DOCKER_IMAGE_NAME: custom-github-action
   DOCKER_IMAGE_TAG: latest
 
@@ -23,7 +23,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} .
-        working-directory: ${{ env.SCRIPTS_FOLDER }}
+        working-directory: docker/
     
   checkout:
     runs-on: ubuntu-latest
